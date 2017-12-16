@@ -31,12 +31,14 @@ INSERT INTO sap_emp VALUES(1009,'Rajesh', 18000, 3);
 INSERT INTO sap_emp VALUES(1010,'Janit', 18000, 3);
 INSERT INTO sap_emp(eid, ename, dept_id) VALUES(1011, 'Tarun', 2);
 
+Data Dictionary
 
 SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE FROM USER_CONSTRAINTS WHERE TABLE_NAME='SAP_DEPT';
 SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE FROM USER_CONSTRAINTS WHERE TABLE_NAME='SAP_EMP';
 
 SELECT OBJECT_NAME FROM USER_OBJECTS WHERE OBJECT_TYPE='TABLE';
 
+Querying employee
 SELECT * FROM sap_emp;  
 SELECT * FROM sap_emp ORDER BY ename; 
 SELECT * FROM sap_emp ORDER BY ename DESC;
@@ -65,6 +67,8 @@ SELECT * FROM sap_emp WHERE sal IS NULL;
 SELECT * FROM sap_emp WHERE sal IS NOT NULL;
 
 SELECT eid EMP_ID, ename EMP_NAME, sal Salary, sal*12 "Annual Salary" FROM sap_emp;
+
+Using Functions
 
 SELECT did, UPPER(dname) "Dept Name"  FROM sap_dept; 
 SELECT did, LOWER(dname) "Dept Name"  FROM sap_dept;         
@@ -97,11 +101,12 @@ INSERT INTO staff VALUES(2, 'Gama','10-AUG-2012',18000);
 INSERT INTO staff VALUES(3, 'krish','22-SEP-2012',25000); 
 INSERT INTO staff VALUES(4, 'ravi','22-JAN-2014',17000); 
 INSERT INTO staff VALUES(5, 'varun','09-FEB-2016',27000); 
-ALTER TABLE staff ADD desig VARCHAR2(20);
-ALTER TABLE staff ADD CITY VARCHAR2(20) default 'delhi' NOT NULL;
 UPDATE staff SET desig ='manager' WHERE sal>=20000; 
 UPDATE staff SET desig ='associate' WHERE sal<20000; 
 
+Editing table structure
+ALTER TABLE staff ADD desig VARCHAR2(20);
+ALTER TABLE staff ADD CITY VARCHAR2(20) default 'delhi' NOT NULL;
 ALTER TABLE staff MODIFY s_name VARCHAR2(2);  // will give an error as we have values with more that 2 length in s_name
 
 
